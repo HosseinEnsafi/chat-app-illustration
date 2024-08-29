@@ -1,51 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--=============== FAVICON ===============-->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/images/favicon-32x32.png"
+    />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | [Challenge Name Here]</title>
+    <!--=============== CSS FONTS ===============-->
+    <link rel="stylesheet" href="assets/css/fonts.css" />
+    <!--=============== CSS STYLES===============-->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <title>Frontend Mentor | [Chat app CSS illustration ]</title>
+  </head>
+  <body>
+    <!--==================== MAIN ====================-->
+    <main class="main">
+      <!--==================== HERO SECTION ====================-->
+      <section class="hero section">
+        <div class="shape shape--big shape--primary"></div>
+        <div class="shape shape--big shape--alt"></div>
+        <div class="hero__container container">
+          <!--==================== PHONE BLOCK ====================-->
+          <div class="phone">
+            <header class="phone__header">
+              <div class="phone__header-back"></div>
+              <div class="phone__header-profile">
+                <figure>
+                  <img src="assets/images/avatar.jpg" alt="avatar profile" />
+                  <figcaption>
+                    <h3>Samuel Green</h3>
+                    <span> Available to Walk</span>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="phone__header-more"></div>
+            </header>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+            <div class="phone__chat">
+              <div
+                class="phone__panel phone__panel--left phone__panel--primary"
+              >
+                <p>That sounds great. I'd be happy with that.</p>
+              </div>
+              <div
+                class="phone__panel phone__panel--left phone__panel--primary"
+              >
+                <p>Could you send over some pictures of your dog, please?</p>
+              </div>
+              <div
+                class="phone__panel phone__panel--right phone__panel--alt phone__panel--dogs grid"
+              >
+                <img
+                  src="assets/images/dog-image-1.jpg"
+                  alt="happy-dog-1"
+                  class="phone__dog-pic"
+                />
+                <img
+                  src="assets/images/dog-image-2.jpg"
+                  alt="happy-dog-2"
+                  class="phone__dog-pic"
+                />
+                <img
+                  src="assets/images/dog-image-3.jpg"
+                  alt="happy-dog-3"
+                  class="phone__dog-pic"
+                />
+              </div>
+              <div class="phone__panel phone__panel--right phone__panel--alt">
+                <p>Here are a few pictures. She’s a happy girl!</p>
+              </div>
+              <div class="phone__panel phone__panel--right phone__panel--alt">
+                <p>Can you make it?</p>
+              </div>
+              <div
+                class="phone__panel phone__panel--left phone__panel--primary"
+              >
+                <p>
+                  She looks so happy! The time we discussed works. How long
+                  shall I take her out for?
+                </p>
+              </div>
+            </div>
+            <div class="phone__options">
+              <div class="phone__option">
+                <label class="radio phone__option-radio flex">
+                  <input
+                    type="radio"
+                    name="phone__radio"
+                    class="radio__input"
+                  />
+                  <span class="radio__mark"></span>
+                  30 minute walk
+                </label>
+                <span class="phone__option-price"> $29 </span>
+              </div>
 
-  Samuel Green
-  Available to Walk
+              <div class="phone__option">
+                <label class="radio phone__option-radio">
+                  <input
+                    type="radio"
+                    name="phone__radio"
+                    class="radio__input"
+                  />
+                  <span class="radio__mark"></span>
+                  1 hour walk
+                </label>
+                <span class="phone__option-price"> $49 </span>
+              </div>
+            </div>
 
-  That sounds great. I’d be happy with that.
-
-  Could you send over some pictures of your dog, please?
-
-  Here are a few pictures. She’s a happy girl!
-
-  Can you make it?
-
-  She looks so happy! The time we discussed works. How long shall I take her out for?
-
-  30 minute walk
-  $29
-
-  1 hour walk
-  $49
-
-  Type a message…
-
-  Simple booking
-
-  Stay in touch with our dog walkers through the chat interface. This makes it easy to 
-  discuss arrangements and make bookings. Once the walk has been completed you can rate 
-  your walker and book again all through the chat.
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
-</body>
+            <form onsubmit="e.preventDefault()" class="phone__send">
+              <div class="phone__send-input-container">
+                <input
+                  type="text"
+                  class="phone__send-input"
+                  placeholder="Type a message…"
+                />
+                <button class="phone__send-input-btn grid"></button>
+              </div>
+            </form>
+          </div>
+          <div class="hero__data">
+            <h2 class="hero__data-title">Simple booking</h2>
+            <p class="hero__data-description">
+              Stay in touch with our dog walkers through the chat interface.
+              This makes it easy to discuss arrangements and make bookings. Once
+              the walk has been completed you can rate your walker and book
+              again all through the chat.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>

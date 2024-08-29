@@ -1,0 +1,433 @@
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  --first-color-moderate: hsl(276, 55%, 52%);
+  --first-color-pale: hsl(276, 100%, 81%);
+  --first-color-desaturated: hsl(271, 15%, 43%);
+  --first-color-desaturate-dark: hsl(271, 36%, 24%);
+  --first-color-fresh: hsl(292, 85%, 62%);
+  --placeholder-text: hsl(206, 6%, 79%);
+  --bg-color: #fafafa;
+  --text-color: hsl(270, 7%, 64%);
+  /*========== Font and typography ==========*/
+  --body-font: Rubik, sans-serif;
+  --icon-font: remixicon;
+  --normal-font-size: 0.9375rem;
+  --h1-font-size: 1.5rem;
+
+  --back-icon: "\EA64";
+  --send-icon: "\EA6E";
+  --more-icon: "\EF76";
+  /*========== Font weight ==========*/
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  /*========== Sizing ==========*/
+  --phone-space: 10px 8px;
+}
+
+@media screen and (min-width: 968px) {
+  :root {
+    --normal-font-size: 1rem;
+    --h1-font-size: 2rem;
+  }
+}
+
+/*=============== BASE ===============*/
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  outline: none;
+  border: none;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-weight: var(--font-medium);
+  font-size: var(--normal-font-size);
+  font-family: var(--body-font);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  padding-inline: 25px;
+  width: min(100%, 840px);
+}
+
+.grid {
+  display: grid;
+}
+
+.flex {
+  display: flex;
+}
+
+.main {
+}
+
+.shape {
+  position: absolute;
+}
+
+.shape::after {
+  position: absolute;
+  border-radius: 50%;
+  background-color: inherit;
+  padding-bottom: 100%;
+  width: 100%;
+  height: 0;
+  content: "";
+}
+
+.shape--big {
+  width: 240px;
+  height: 180px;
+}
+
+.shape--primary {
+  background-color: var(--first-color-moderate);
+}
+
+.shape--primary::after {
+  top: 100%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.shape--alt {
+  right: 0;
+  bottom: 0;
+  background-color: #f1f1f1;
+}
+
+.shape--alt::after {
+  transform: translateY(25%);
+}
+
+.radio {
+  display: flex;
+  position: relative;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 6px;
+  user-select: none;
+}
+.radio__input {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+.radio__mark {
+  display: inline-grid;
+  place-content: center;
+  vertical-align: middle;
+  border: 1px solid var(--text-color);
+  border-radius: 50%;
+  background: var(--bg-color);
+  width: 12px;
+  height: 12px;
+}
+
+.radio__input:checked + .radio__mark {
+  background-color: var(--first-color-moderate);
+}
+
+.radio__mark::after {
+  display: inline-block;
+  border-radius: 50%;
+  background-color: var(--bg-color);
+  width: 6px;
+  height: 6px;
+  content: "";
+}
+
+/*=============== HERO ===============*/
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero .shape--primary {
+  top: 0;
+  transform: translate(-50%, 0);
+}
+
+.hero .shape--alt {
+  transform: translate(50%, 0) rotate(180deg);
+}
+
+.hero__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  padding-top: 80px;
+}
+
+/*=============== PHONE ===============*/
+.phone {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  border: 6px white solid;
+  border-radius: 15px;
+  background: var(--bg-color);
+  width: min(100%, 250px);
+  overflow: hidden;
+}
+
+.phone::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  border-radius: 20px;
+  background-color: white;
+  width: 130px;
+  height: 25px;
+  content: "";
+}
+
+.phone__header {
+  display: flex;
+  align-items: center;
+  background-image: linear-gradient(
+    to right,
+    var(--first-color-moderate),
+    var(--first-color-fresh)
+  );
+  padding: 25px 15px 10px;
+}
+
+.phone__header-back {
+  justify-self: end;
+}
+
+.phone__header-back::after {
+  content: var(--back-icon);
+  color: white;
+  font-family: var(--icon-font);
+}
+
+.phone__header-profile {
+  flex: 1;
+}
+
+.phone__header-profile figure {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.phone__header-profile figure img {
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 25px;
+}
+
+.phone__header-profile figure figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.phone__header-profile figure figcaption h3 {
+  color: var(--placeholder-text);
+  color: white;
+  font-size: 10px;
+}
+
+.phone__header-profile figure figcaption span {
+  color: var(--placeholder-text);
+  font-size: 6px;
+}
+
+.phone__header-more::after {
+  content: var(--more-icon);
+  color: white;
+  font-family: var(--icon-font);
+}
+
+.phone__chat {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+  padding: var(--phone-space);
+}
+.phone__panel {
+  border-radius: 8px;
+  padding: 8px;
+  width: min(128px, 100%);
+  font-size: 6px;
+}
+
+.phone__panel--left {
+  align-self: start;
+}
+
+.phone__panel--right {
+  align-self: end;
+}
+
+.phone__panel--primary {
+  background-color: hsl(270, 20%, 96%);
+  color: hsl(268, 52%, 65%);
+}
+
+.phone__panel--alt {
+  background-color: white;
+}
+
+.phone__panel--left + .phone__panel--right,
+.phone__panel--right + .phone__panel--left {
+  margin-top: 8px;
+}
+
+.phone__panel--dogs {
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 8px;
+  background-color: transparent;
+  padding: 0;
+}
+
+.phone__panel--dogs img {
+  border-radius: 12%;
+}
+
+.phone__options {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  gap: 5px;
+  padding: var(--phone-space);
+  width: 100%;
+  max-width: 160px;
+}
+
+.phone__option {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 10px 10px 10px 0;
+  background-image: linear-gradient(
+    to left,
+    var(--first-color-moderate),
+    var(--first-color-fresh)
+  );
+  padding: var(--phone-space);
+  color: #afa;
+}
+
+.phone__option-radio {
+}
+
+.phone__option-price {
+  color: white;
+  font-weight: var(--font-semibold);
+  font-size: 12px;
+}
+
+.phone__send {
+  padding: 10px 8px;
+  width: 100%;
+}
+
+.phone__send-input-container {
+  position: relative;
+}
+
+.phone__send-input {
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  background-color: white;
+  padding: 12px 10px;
+  padding-right: 40px;
+  width: 100%;
+  color: #333;
+  font-size: 10px;
+  font-family: inherit;
+}
+
+.phone__send-input::placeholder {
+  color: #b6b6b6;
+}
+
+.phone__send-input-btn {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  place-content: center;
+  transform: translateY(-50%);
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  background-color: #3f2852;
+  padding: 6px;
+  color: white;
+}
+
+.phone__send-input-btn::after {
+  content: var(--send-icon);
+  font-family: var(--icon-font);
+}
+
+.hero__data {
+  position: relative;
+  margin-bottom: 12px;
+  color: #3f2852;
+  text-align: center;
+}
+
+.hero__data-title {
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.hero__data-description {
+  color: var(--text-color);
+  font-weight: var(--font-light);
+  font-size: 14px;
+  line-height: 20px;
+}
+/*=============== BREAKPOINTS ===============*/
+/* for small devices  */
+@media screen and (max-width: 320px) {
+}
+
+/* For medium devices */
+@media screen and (min-width: 578px) {
+}
+
+/* For large devices */
+@media screen and (min-width: 1024px) {
+}
